@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Paragraf HTML</title>
+</head>
+<body>
+ <h1>Contoh Paragraf dalam HTML</h1>
+ 
+ <!-- Paragraf biasa -->
+ <p>Ini adalah contoh paragraf pertama. Paragraf dalam HTML digunakan untuk menampilkan teks dalam bentuk blok yang terpisah.</p>
+
+ <!-- Paragraf dengan line breaks -->
+ <p>Ini adalah paragraf kedua.<br>Di sini kita menggunakan tag &lt;br&gt; untuk membuat line break.<br>Ini akan memaksa teks untuk pindah ke baris baru.</p>
+
+ <!-- Paragraf dengan preformatted text -->
+ <pre>
+ Ini adalah teks yang diformat sebelumnya.
+ Spasi dan line break akan dipertahankan.
+   Seperti ini.
+ </pre>
+
+ <!-- Paragraf dengan horizontal rule -->
+ <p>Ini adalah paragraf sebelum garis horizontal.</p>
+ <hr>
+ <p>Ini adalah paragraf setelah garis horizontal.</p>
+
+ <!-- Paragraf dengan quotation -->
+ <p>Berikut adalah kutipan dari website WWF:</p>
+ <blockquote cite="http://www.worldwildlife.org/who/index.html">
+  Untuk 50 tahun, WWF telah melindungi masa depan alam.
+  Organisasi konservasi terkemuka di dunia, WWF bekerja di 100 negara
+  dan didukung oleh 1,2 juta anggota di Amerika Serikat dan
+  hampir 5 juta secara global.
+ </blockquote>
+</body>
+</html>
