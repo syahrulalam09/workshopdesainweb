@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Pemformatan Teks</title>
+</head>
+<body>
+ <h1>Berbagai Cara Memformat Teks dalam HTML</h1>
+ <p>Ini adalah teks <b>tebal (bold)</b> menggunakan tag &lt;b&gt;.</p>
+ <p>Ini adalah teks <strong>penting (strong)</strong> menggunakan tag &lt;strong&gt;.</p>
+ <p>Ini adalah teks <i>miring (italic)</i> menggunakan tag &lt;i&gt;.</p>
+ <p>Ini adalah teks <em>penekanan (emphasized)</em> menggunakan tag &lt;em&gt;.</p>
+ <p>Ini adalah teks <mark>ditandai (marked)</mark> menggunakan tag &lt;mark&gt;.</p>
+ <p>Ini adalah teks <small>kecil (small)</small> menggunakan tag &lt;small&gt;.</p>
+ <p>Ini adalah teks <del>tercoret (deleted)</del> menggunakan tag &lt;del&gt;.</p>
+ <p>Ini adalah teks <ins>disisipkan (inserted)</ins> menggunakan tag &lt;ins&gt;.</p>
+ <p>Ini adalah teks <sub>subscript</sub> menggunakan tag &lt;sub&gt;.</p>
+ <p>Ini adalah teks <sup>superscript</sup> menggunakan tag &lt;sup&gt;.</p>
+ <p>Ini adalah teks <code>kode komputer (code)</code> menggunakan tag &lt;code&gt;.</p>
+ <p>Ini adalah teks dengan <abbr title="HyperText Markup Language">HTML</abbr> singkatan menggunakan tag &lt;abbr&gt;.</p>
+ <p>Ini adalah teks dengan <q>kutipan pendek (quotation)</q> menggunakan tag &lt;q&gt;.</p>
+</body>
+</html>
