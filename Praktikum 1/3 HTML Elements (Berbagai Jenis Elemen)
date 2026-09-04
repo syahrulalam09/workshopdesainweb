@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+ <html>
+ <head>
+  <title>Elemen HTML</title>
+ </head>
+ <body>
+  <!-- Elemen Block -->
+  <div>Ini adalah div (block element)</div>
+  <p>Ini adalah paragraf (block element)</p>
+  
+  <!-- Elemen Inline -->
+  <span>Ini adalah span (inline element)</span>
+  <a href="#">Ini adalah link (inline element)</a>
+  
+  <!-- Elemen Semantic -->
+  <header>Header</header>
+  <main>Konten Utama</main>
+  <aside>Sidebar</aside>
+  <footer>Footer</footer>
+  
+  <!-- Elemen Form -->
+  <form>
+   <label for="nama">Nama:</label>
+   <input type="text" id="nama" name="nama">
+   <button type="submit">Submit</button>
+  </form>
+ </body>
+</html>
