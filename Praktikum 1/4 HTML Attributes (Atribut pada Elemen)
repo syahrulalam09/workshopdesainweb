@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+ <title>Atribut HTML</title>
+</head>
+<body>
+ <!-- Atribut href pada elemen a -->
+ <a href="https://www.example.com" target="_blank" title="Kunjungi Example.com">
+  Kunjungi Example.com
+ </a>
+ 
+ <!-- Atribut src dan alt pada elemen img -->
+ <img src="gambar.jpg" alt="Deskripsi gambar" width="300" height="200">
+ 
+ <!-- Atribut class dan id -->
+ <p class="teks-penting" id="paragraf-utama">
+  Paragraf ini memiliki class dan id.
+ </p>
+
+ <!-- Atribut style -->
+ <div style="color: blue; font-size: 18px;">
+  Teks dengan gaya inline.
+ </div>
+
+ <!-- Atribut disabled -->
+ <button disabled>Tombol Non-aktif</button>
+ </body>
+</html>
