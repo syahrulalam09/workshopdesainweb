@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Garis dan Komentar</title>
+</head>
+<body>
+ <h1>Contoh Penggunaan HR dan Komentar</h1>
+ 
+ <p>Ini adalah bagian pertama dari konten.</p>
+ <!-- Ini adalah komentar yang tidak akan ditampilkan di browser -->
+
+ <hr> <!-- Menambahkan garis horizontal -->
+
+ <p>Ini adalah bagian kedua dari konten, dipisahkan oleh garis.</p>
+
+ <!--
+ Ini adalah komentar multi-baris
+ yang dapat digunakan untuk menjelaskan
+ bagian kode yang lebih kompleks
+ -->
+ 
+ <hr noshade> <!-- Garis tanpa bayangan -->
+ 
+ <p>Ini adalah bagian ketiga dari konten.</p>
+
+ <hr size="5" width="50%" color="red"> <!-- Garis dengan atribut tambahan -->
+
+ <!-- Komentar juga berguna untuk menyembunyikan sementara kode -->
+ 
+ <!--
+ <p>Paragraf ini tidak akan ditampilkan karena dikomentari.</p>
+ -->
+</body>
+</html>
