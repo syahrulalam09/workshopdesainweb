@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Gaya HTML</title>
+ <style>
+  body {
+   font-family: Arial, sans-serif;
+   line-height: 1.6;
+   margin: 20px;
+   background-color: #f4f4f4;
+  }
+  h1 {
+   color: navy;
+   text-align: center;
+  }
+  .container {
+   background-color: white;
+   padding: 20px;
+   border-radius: 5px;
+   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  .highlight {
+   background-color: yellow;
+   padding: 5px;
+  }
+  #special {
+   border-left: 4px solid green;
+   padding-left: 10px;
+   font-style: italic;
+  }
+ </style>
+</head>
+<body>
+ <div class="container">
+  <h1>Contoh Penggunaan Gaya dalam HTML</h1>
+  <p style="color: red; font-size: 18px;">
+   Ini adalah paragraf dengan gaya inline.
+  </p>
+  <p class="highlight">
+   Ini adalah paragraf dengan class highlight.
+  </p>
+  <p id="special">
+   Ini adalah paragraf dengan ID special.
+  </p>
+  <p>
+   Ini adalah paragraf normal dengan gaya dari CSS internal.
+  </p>
+ </div>
+</body>
+</html>
