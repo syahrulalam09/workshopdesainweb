@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+ <html>
+ <head>
+  <title>Dasar-dasar HTML</title>
+ </head>
+ <body>
+  <!-- Konten halaman akan ditempatkan di sini -->
+  <nav>
+   <a href="#home">Home</a> |
+   <a href="#about">Tentang</a> |
+   <a href="#contact">Kontak</a>
+  </nav>
+  <section id="home">
+   <h2>Home</h2>
+   <p>Ini adalah bagian home dari halaman web.</p>
+  </section>
+  <footer>
+   <p>&copy; 2023 Workshop Desain Web</p>
+  </footer>
+ </body>
+</html>
