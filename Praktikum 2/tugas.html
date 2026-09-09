@@ -1,0 +1,667 @@
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lunova Cyber - Internet Cafe & Gaming Center</title>
+
+    <style>
+        /* =========================
+           GENERAL
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgb(8, 10, 18);
+            color: white;
+            line-height: 1.6;
+        }
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 15px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgb(8, 10, 18);
+            z-index: 1000;
+            border-bottom: 1px solid #00BFFF;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-container img {
+            width: 45px;
+            height: 45px;
+            object-fit: contain;
+        }
+
+        .logo-container span {
+            font-size: 20px;
+            font-weight: bold;
+            color: #00BFFF;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #00BFFF;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 100px 8%;
+            background: linear-gradient(
+                rgba(8, 10, 18, 0.7),
+                rgba(8, 10, 18, 0.9)
+            ), url("images/hero.jpg") center/cover;
+        }
+
+        .hero-content {
+            max-width: 700px;
+        }
+
+        .hero-label {
+            color: #00BFFF;
+            letter-spacing: 3px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: 60px;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #00BFFF;
+        }
+
+        .hero p {
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #00BFFF;
+            color: black;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background-color: hsl(271, 76%, 53%);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* =========================
+           SECTION
+        ========================= */
+
+        .section {
+            padding: 100px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title p {
+            color: #00BFFF;
+            letter-spacing: 3px;
+            font-size: 14px;
+        }
+
+        .section-title h2 {
+            font-size: 40px;
+        }
+
+        .section-title span {
+            color: #00BFFF;
+        }
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about-content,
+        .features-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-image,
+        .features-image {
+            flex: 1;
+        }
+
+        .about-image img,
+        .features-image img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .about-text,
+        .features-list {
+            flex: 1;
+        }
+
+        .about-text h3,
+        .features-list h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #00BFFF;
+        }
+
+        .about-text p {
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        /* =========================
+           SERVICES
+        ========================= */
+
+        .services {
+            background-color: rgb(13, 16, 26);
+        }
+
+        .service-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .service-card {
+            padding: 30px 20px;
+            background-color: rgb(21, 25, 37);
+            border: 1px solid #252B3A;
+            border-radius: 10px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .service-card:hover {
+            border-color: #00BFFF;
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .service-card h3 {
+            margin-bottom: 10px;
+            color: #00BFFF;
+        }
+
+        .service-card p {
+            color: white;
+            font-size: 14px;
+        }
+
+        /* =========================
+           FEATURES
+        ========================= */
+
+        .features-list ul {
+            list-style: none;
+        }
+
+        .features-list li {
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+            color: white;
+        }
+
+        .features-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #00BFFF;
+            font-weight: bold;
+        }
+
+        /* =========================
+           PRICING
+        ========================= */
+
+        .pricing {
+            background-color: rgb(13, 16, 26);
+        }
+
+        .table-container {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: rgb(21, 25, 37);
+        }
+
+        th,
+        td {
+            padding: 18px;
+            text-align: center;
+            border: 1px solid #303646;
+        }
+
+        th {
+            background-color: #00BFFF;
+            color: black;
+        }
+
+        td {
+            color: white;
+        }
+
+        tr:hover td {
+            background-color: hsl(271, 30%, 15%);
+        }
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        .contact-form {
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #00BFFF;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #303646;
+            border-radius: 5px;
+            background-color: rgb(21, 25, 37);
+            color: white;
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #00BFFF;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            padding: 40px 8% 20px;
+            background-color: rgb(5, 6, 10);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .footer-content h3 {
+            color: white;
+        }
+
+        .footer-content h3 span {
+            color: #00BFFF;
+        }
+
+        .footer-content p {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-links a {
+            color: #00BFFF;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            color: hsl(271, 76%, 53%);
+        }
+
+        .copyright {
+            padding-top: 20px;
+            border-top: 1px solid #252B3A;
+            text-align: center;
+            color: white;
+            font-size: 14px;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 900px) {
+            .nav-links {
+                gap: 15px;
+            }
+
+            .service-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about-content,
+            .features-content {
+                flex-direction: column;
+            }
+
+            .hero h1 {
+                font-size: 45px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .navbar {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .nav-links {
+                gap: 12px;
+                font-size: 13px;
+            }
+
+            .hero {
+                padding-top: 150px;
+            }
+
+            .hero h1 {
+                font-size: 35px;
+            }
+
+            .section-title h2 {
+                font-size: 30px;
+            }
+
+            .service-container {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo-container">
+            <img src="logo.png" alt="Lunova Cyber Logo">
+            <span>LUNOVA CYBER</span>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <p class="hero-label">INTERNET CAFE & GAMING CENTER</p>
+            <h1>PLAY. CONNECT. <span>EXPERIENCE.</span></h1>
+            <p>Lunova Cyber menyediakan tempat terbaik untuk gaming dan mengakses internet dengan koneksi cepat dalam suasana yang nyaman.</p>
+            <a href="#pricing" class="btn">View Packages</a>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section about">
+        <div class="section-title">
+            <p>ABOUT US</p>
+            <h2>Welcome to <span>Lunova Cyber</span></h2>
+        </div>
+
+        <div class="about-content">
+            <div class="about-image">
+                <img src="gaming-room.jpg" alt="Lunova Cyber Gaming Room">
+            </div>
+
+            <div class="about-text">
+                <h3>Your Digital Gaming Space</h3>
+                <p>Lunova Cyber adalah internet cafe dan gaming center yang menyediakan tempat nyaman untuk bermain game dan mengakses internet dengan koneksi cepat dan stabil.</p>
+                <p>Kami menyediakan berbagai pilihan PC untuk memenuhi kebutuhan pelanggan, mulai dari penggunaan internet sehari-hari hingga pengalaman gaming dengan performa tinggi.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="section services">
+        <div class="section-title">
+            <p>OUR SERVICES</p>
+            <h2>What We <span>Offer</span></h2>
+        </div>
+
+        <div class="service-container">
+            <div class="service-card">
+                <div class="service-icon">🖥️</div>
+                <h3>Internet Access</h3>
+                <p>Nikmati koneksi internet cepat dan stabil untuk browsing, belajar, bekerja, dan aktivitas online lainnya.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🎮</div>
+                <h3>Gaming</h3>
+                <p>Mainkan berbagai game favorit dengan PC gaming yang memiliki performa tinggi dan nyaman digunakan.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">⚡</div>
+                <h3>High-Speed Network</h3>
+                <p>Koneksi jaringan cepat dan stabil untuk memberikan pengalaman online dan gaming yang lebih baik.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🌙</div>
+                <h3>24 Hour Access</h3>
+                <p>Layanan tersedia selama 24 jam sehingga pelanggan dapat datang dan bermain kapan saja.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="section features">
+        <div class="section-title">
+            <p>WHY CHOOSE US</p>
+            <h2>Our <span>Advantages</span></h2>
+        </div>
+
+        <div class="features-content">
+            <div class="features-image">
+                <img src="gaming.jpg" alt="Gaming PC">
+            </div>
+
+            <div class="features-list">
+                <h3>Gaming Experience Made Better</h3>
+
+                <ul>
+                    <li>PC Gaming dengan performa tinggi</li>
+                    <li>Koneksi internet cepat dan stabil</li>
+                    <li>Ruangan nyaman untuk bermain</li>
+                    <li>Harga terjangkau</li>
+                    <li>Tersedia 24 jam</li>
+                    <li>Peralatan gaming yang nyaman</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing" class="section pricing">
+        <div class="section-title">
+            <p>OUR PRICING</p>
+            <h2>Choose Your <span>Package</span></h2>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Package</th>
+                        <th>Price / Hour</th>
+                        <th>PC Type</th>
+                        <th>Internet</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Regular</td>
+                        <td>Rp5.000</td>
+                        <td>Standard PC</td>
+                        <td>High Speed</td>
+                    </tr>
+
+                    <tr>
+                        <td>Gaming</td>
+                        <td>Rp8.000</td>
+                        <td>Gaming PC</td>
+                        <td>High Speed</td>
+                    </tr>
+
+                    <tr>
+                        <td>Premium</td>
+                        <td>Rp12.000</td>
+                        <td>High-End PC</td>
+                        <td>Premium Speed</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section contact">
+        <div class="section-title">
+            <p>CONTACT US</p>
+            <h2>Get in <span>Touch</span></h2>
+        </div>
+
+        <form class="contact-form">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email">
+            </div>
+
+            <div class="form-group">
+                <label for="package">Package</label>
+                <select id="package" name="package">
+                    <option value="">Choose a package</option>
+                    <option value="regular">Regular</option>
+                    <option value="gaming">Gaming</option>
+                    <option value="premium">Premium</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" placeholder="Write your message"></textarea>
+            </div>
+
+            <button type="submit" class="btn">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h3>LUNOVA <span>CYBER</span></h3>
+                <p>Internet Cafe & Gaming Center</p>
+            </div>
+
+            <div class="social-links">
+                <a href="instagram.com">Instagram</a>
+                <a href="facebook.com">Facebook</a>
+                <a href="discord.gg">Discord</a>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p>&copy; 2026 Lunova Cyber. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
+```
