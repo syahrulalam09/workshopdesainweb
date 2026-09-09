@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warna dalam HTML</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+
+        .container {
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .color-section {
+            margin: 20px 0;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        .color-box {
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            border-radius: 5px;
+            text-align: center;
+            line-height: 100px;
+            color: white;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .color-name {
+            font-weight: bold;
+            margin: 5px 0;
+        }
+
+        .color-code {
+            font-family: monospace;
+            background-color: #f1f1f1;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+
+        .named-colors {
+            background-color: #f8f9fa;
+            border-left: 4px solid #3498db;
+        }
+
+        .hex-colors {
+            background-color: #f8f9fa;
+            border-left: 4px solid #e74c3c;
+        }
+
+        .rgb-colors {
+            background-color: #f8f9fa;
+            border-left: 4px solid #2ecc71;
+        }
+
+        .hsl-colors {
+            background-color: #f8f9fa;
+            border-left: 4px solid #f39c12;
+        }
+
+        .gradient-example {
+            height: 100px;
+            border-radius: 5px;
+            margin: 15px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Warna dalam HTML</h1>
+
+        <div class="color-section named-colors">
+            <h2>Warna dengan Nama (Named Colors)</h2>
+            <div class="color-box" style="background-color: red;">Red</div>
+            <div class="color-box" style="background-color: green;">Green</div>
+            <div class="color-box" style="background-color: blue;">Blue</div>
+            <div class="color-box" style="background-color: orange;">Orange</div>
+            <div class="color-box" style="background-color: purple;">Purple</div>
+            <p>HTML dan CSS mendukung 140+ warna dengan nama standar.</p>
+        </div>
+
+        <div class="color-section hex-colors">
+            <h2>Warna dengan Kode HEX</h2>
+            <div class="color-box" style="background-color: #ff0000;">#FF0000</div>
+            <div class="color-box" style="background-color: #00ff00;">#00FF00</div>
+            <div class="color-box" style="background-color: #0000ff;">#0000FF</div>
+            <div class="color-box" style="background-color: #ffa500;">#FFA500</div>
+            <div class="color-box" style="background-color: #800080;">#800080</div>
+            <p>Kode HEX: #RRGGBB, dimana RR (merah), GG (hijau), BB (biru) dalam heksadesimal (00-FF).</p>
+        </div>
+
+        <div class="color-section rgb-colors">
+            <h2>Warna dengan RGB</h2>
+            <div class="color-box" style="background-color: rgb(255, 0, 0);">rgb(255,0,0)</div>
+            <div class="color-box" style="background-color: rgb(0, 255, 0);">rgb(0,255,0)</div>
+            <div class="color-box" style="background-color: rgb(0, 0, 255);">rgb(0,0,255)</div>
+            <div class="color-box" style="background-color: rgb(255, 165, 0);">rgb(255,165,0)</div>
+            <div class="color-box" style="background-color: rgb(128, 0, 128);">rgb(128,0,128)</div>
+            <p>RGB: rgb(red, green, blue) dengan nilai 0-255 untuk setiap komponen warna.</p>
+        </div>
+
+        <div class="color-section hsl-colors">
+            <h2>Warna dengan HSL</h2>
+            <div class="color-box" style="background-color: hsl(0, 100%, 50%);">hsl(0,100%,50%)</div>
+            <div class="color-box" style="background-color: hsl(120, 100%, 50%);">hsl(120,100%,50%)</div>
+            <div class="color-box" style="background-color: hsl(240, 100%, 50%);">hsl(240,100%,50%)</div>
+            <div class="color-box" style="background-color: hsl(39, 100%, 50%);">hsl(39,100%,50%)</div>
+            <div class="color-box" style="background-color: hsl(300, 100%, 25%);">hsl(300,100%,25%)</div>
+            <p>HSL: hsl(hue, saturation, lightness) dengan hue (0-360), saturation (0-100%), lightness (0-100%).</p>
+        </div>
+
+        <h2>Contoh Gradien Warna</h2>
+
+        <div class="gradient-example" style="background: linear-gradient(90deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);">
+            Gradien Linear
+        </div>
+
+        <div class="gradient-example" style="background: radial-gradient(circle, #5c6bc0 0%, #3949ab 100%);">
+            Gradien Radial
+        </div>
+
+        <h2>Contoh Transparansi (Opacity)</h2>
+
+        <div style="display: flex; justify-content: space-around;">
+            <div class="color-box" style="background-color: rgba(255, 0, 0, 1);">rgba(255,0,0,1)</div>
+            <div class="color-box" style="background-color: rgba(255, 0, 0, 0.7);">rgba(255,0,0,0.7)</div>
+            <div class="color-box" style="background-color: rgba(255, 0, 0, 0.4);">rgba(255,0,0,0.4)</div>
+            <div class="color-box" style="background-color: rgba(255, 0, 0, 0.1);">rgba(255,0,0,0.1)</div>
+        </div>
+
+        <p>RGBA: rgba(red, green, blue, alpha) dengan alpha 0 (transparan) hingga 1 (opak).</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar HTML</title>
+
+    <style>
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ecf0f1;
+            color: #2c3e50;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        ul,
+        ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+
+        li {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+
+        .unordered {
+            list-style-type: square;
+        }
+
+        .ordered {
+            list-style-type: upper-roman;
+        }
+
+        .nested {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+
+        .definition-list dt {
+            font-weight: bold;
+            color: #e74c3c;
+            margin-top: 10px;
+        }
+
+        .definition-list dd {
+            margin-left: 20px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>HTML Lists</h1>
+
+        <h2>Daftar Tidak Terurut (Unordered List)</h2>
+
+        <ul class="unordered">
+            <li>
+                Pemrograman Web
+                <ul>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                </ul>
+            </li>
+            <li>Basis Data</li>
+            <li>Jaringan Komputer</li>
+        </ul>
+
+        <h2>Daftar Terurut (Ordered List)</h2>
+
+        <ol class="ordered">
+            <li>Buka editor teks</li>
+            <li>
+                Buat file HTML
+                <ol>
+                    <li>Tambahkan struktur dasar</li>
+                    <li>Tambahkan konten</li>
+                </ol>
+            </li>
+            <li>Simpan dengan ekstensi .html</li>
+            <li>Buka di browser</li>
+        </ol>
+
+        <div class="nested">
+            <h2>Daftar Tersarang (Nested List)</h2>
+
+            <ol>
+                <li>
+                    Frontend Development
+                    <ul>
+                        <li>HTML</li>
+                        <li>
+                            CSS
+                            <ul>
+                                <li>CSS Basics</li>
+                                <li>Flexbox</li>
+                                <li>Grid</li>
+                            </ul>
+                        </li>
+                        <li>JavaScript</li>
+                    </ul>
+                </li>
+
+                <li>
+                    Backend Development
+                    <ul>
+                        <li>Node.js</li>
+                        <li>PHP</li>
+                        <li>Python</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+
+        <h2>Daftar Definisi (Definition List)</h2>
+
+        <dl class="definition-list">
+            <dt>HTML</dt>
+            <dd>HyperText Markup Language - Bahasa markup untuk membuat halaman web.</dd>
+
+            <dt>CSS</dt>
+            <dd>Cascading Style Sheets - Bahasa stylesheet untuk mendesain tampilan halaman web.</dd>
+
+            <dt>JavaScript</dt>
+            <dd>Bahasa pemrograman untuk membuat halaman web interaktif.</dd>
+        </dl>
+    </div>
+</body>
+</html>

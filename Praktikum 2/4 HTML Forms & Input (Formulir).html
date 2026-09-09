@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulir HTML</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        .form-container {
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #34495e;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="date"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-family: inherit;
+        }
+
+        textarea {
+            height: 100px;
+            resize: vertical;
+        }
+
+        fieldset {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        legend {
+            font-weight: bold;
+            color: #2c3e50;
+            padding: 0 10px;
+        }
+
+        .checkbox-group,
+        .radio-group {
+            margin: 10px 0;
+        }
+
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        button[type="reset"] {
+            background-color: #e74c3c;
+        }
+
+        button[type="reset"]:hover {
+            background-color: #c0392b;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form-container">
+        <h1>Formulir Pendaftaran</h1>
+
+        <form action="#" method="post">
+            <div class="form-group">
+                <label for="nama">Nama Lengkap:</label>
+                <input type="text" id="nama" name="nama" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+
+            <div class="form-group">
+                <label for="tanggal">Tanggal Lahir:</label>
+                <input type="date" id="tanggal" name="tanggal">
+            </div>
+
+            <fieldset>
+                <legend>Jenis Kelamin</legend>
+
+                <div class="radio-group">
+                    <input type="radio" id="laki" name="jenis_kelamin" value="laki">
+                    <label for="laki">Laki-laki</label>
+                </div>
+
+                <div class="radio-group">
+                    <input type="radio" id="perempuan" name="jenis_kelamin" value="perempuan">
+                    <label for="perempuan">Perempuan</label>
+                </div>
+            </fieldset>
+
+            <div class="form-group">
+                <label for="jurusan">Jurusan:</label>
+
+                <select id="jurusan" name="jurusan">
+                    <option value="">-- Pilih Jurusan --</option>
+                    <option value="ti">Teknik Informatika</option>
+                    <option value="si">Sistem Informasi</option>
+                    <option value="mi">Manajemen Informatika</option>
+                    <option value="tk">Teknik Komputer</option>
+                </select>
+            </div>
+
+            <fieldset>
+                <legend>Minat Karir (Bisa pilih lebih dari satu)</legend>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="webdev" name="minat" value="webdev">
+                    <label for="webdev">Web Development</label>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="mobile" name="minat" value="mobile">
+                    <label for="mobile">Mobile Development</label>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="uiux" name="minat" value="uiux">
+                    <label for="uiux">UI/UX Design</label>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="data" name="minat" value="data">
+                    <label for="data">Data Science</label>
+                </div>
+            </fieldset>
+
+            <div class="form-group">
+                <label for="pesan">Pesan/Komentar:</label>
+                <textarea id="pesan" name="pesan"></textarea>
+            </div>
+
+            <div class="form-group">
+                <button type="submit">Daftar</button>
+                <button type="reset">Reset</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
