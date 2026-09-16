@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Percobaan 4: Plugin PDF</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .container {
+            border: 2px solid #f39c12;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #d68910;
+        }
+
+        object {
+            width: 100%;
+            height: 500px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Percobaan 4: Menggunakan Plugin PDF</h2>
+
+        <p>Dokumen PDF di bawah ini ditampilkan menggunakan tag &lt;embed&gt;.</p>
+
+        <embed src="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" type="application/pdf">
+
+        <p><strong>Kode HTML:</strong></p>
+
+        <pre>
+&lt;embed src="dummy.pdf" type="application/pdf"&gt;
+        </pre>
+    </div>
+</body>
+</html>

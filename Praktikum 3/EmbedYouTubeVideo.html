@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Percobaan 3: YouTube Embed</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .container {
+            border: 2px solid #27ae60;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #229954;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Percobaan 3: Embed YouTube Video</h2>
+
+        <p>Video YouTube di bawah ini di-embed menggunakan iframe dengan responsive design.</p>
+
+        <div class="video-container">
+            <iframe
+                src="https://www.youtube.com/embed/oNWGpVpBGsk"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <p><strong>Kode HTML:</strong></p>
+
+        <pre>
+&lt;div class="video-container"&gt;
+&lt;iframe src="https://www.youtube.com/embed/oNWGpVpBGsk"
+frameborder="0"
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;
+picture-in-picture"
+allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+        </pre>
+    </div>
+</body>
+</html>

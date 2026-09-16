@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Percobaan 5: Multimedia Gallery</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .container {
+            border: 2px solid #8e44ad;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #7d3c98;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .media-item {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            width: 45%;
+            box-sizing: border-box;
+        }
+
+        video,
+        audio {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Percobaan 5: Multimedia Gallery Sederhana</h2>
+
+        <p>Gallery yang menampilkan berbagai jenis media dalam satu halaman.</p>
+
+        <div class="gallery">
+            <div class="media-item">
+                <h3>Video</h3>
+
+                <video controls>
+                    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                    Browser tidak mendukung video.
+                </video>
+            </div>
+
+            <div class="media-item">
+                <h3>Audio</h3>
+
+                <audio controls>
+                    <source src="https://www.w3schools.com/html/horse.mp3" type="audio/mpeg">
+                    Browser tidak mendukung audio.
+                </audio>
+            </div>
+
+            <div class="media-item">
+                <h3>YouTube</h3>
+
+                <iframe
+                    width="100%"
+                    height="auto"
+                    src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                    frameborder="0"
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            <div class="media-item">
+                <h3>PDF</h3>
+
+                <embed src="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+                       type="application/pdf"
+                       width="100%"
+                       height="200">
+            </div>
+        </div>
+
+        <p><strong>Kode HTML:</strong></p>
+
+        <pre>
+&lt;div class="gallery"&gt;
+    &lt;div class="media-item"&gt;
+        &lt;h3&gt;Video&lt;/h3&gt;
+        &lt;video controls&gt;
+            &lt;source src="video.mp4" type="video/mp4"&gt;
+        &lt;/video&gt;
+    &lt;/div&gt;
+
+    &lt;div class="media-item"&gt;
+        &lt;h3&gt;Audio&lt;/h3&gt;
+        &lt;audio controls&gt;
+            &lt;source src="audio.mp3" type="audio/mpeg"&gt;
+        &lt;/audio&gt;
+    &lt;/div&gt;
+
+    &lt;div class="media-item"&gt;
+        &lt;h3&gt;YouTube&lt;/h3&gt;
+        &lt;iframe src="https://www.youtube.com/embed/..."&gt;&lt;/iframe&gt;
+    &lt;/div&gt;
+
+    &lt;div class="media-item"&gt;
+        &lt;h3&gt;PDF&lt;/h3&gt;
+        &lt;embed src="dummy.pdf" type="application/pdf"&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+        </pre>
+    </div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Percobaan 2: HTML Audio</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .container {
+            border: 2px solid #e74c3c;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #c0392b;
+        }
+
+        audio {
+            width: 100%;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Percobaan 2: HTML Audio dengan Beberapa Format</h2>
+
+        <p>Elemen audio di bawah ini menyediakan beberapa format sumber untuk kompatibilitas browser.</p>
+
+        <audio controls>
+            <source src="https://www.w3schools.com/html/horse.ogg" type="audio/ogg">
+            <source src="https://www.w3schools.com/html/horse.mp3" type="audio/mpeg">
+            Browser Anda tidak mendukung elemen audio.
+        </audio>
+
+        <p><strong>Kode HTML:</strong></p>
+
+        <pre>
+&lt;audio controls&gt;
+&lt;source src="horse.ogg" type="audio/ogg"&gt;
+&lt;source src="horse.mp3" type="audio/mpeg"&gt;
+Browser Anda tidak mendukung elemen audio.
+&lt;/audio&gt;
+        </pre>
+    </div>
+</body>
+</html>
