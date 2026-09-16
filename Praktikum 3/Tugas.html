@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Programmer Portfolio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Courier New", monospace;
+            background-color: #120c1c;
+            color: #f8f8f8;
+            line-height: 1.6;
+        }
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 8%;
+            background-color: #1d1230;
+            border-bottom: 3px solid #00e5ff;
+        }
+
+        .logo {
+            color: #00e5ff;
+            font-size: 22px;
+            font-weight: bold;
+            text-shadow: 3px 3px #8a2be2;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .nav-links a:hover {
+            color: #ff3cac;
+        }
+
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 80px 8%;
+            background:
+                linear-gradient(rgba(18, 12, 28, 0.85), rgba(18, 12, 28, 0.9)),
+                url("images/game-bg.jpg") center/cover;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .pixel-label {
+            color: #00e5ff;
+            font-size: 16px;
+            letter-spacing: 4px;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: 58px;
+            color: white;
+            text-shadow: 4px 4px #8a2be2;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #ff3cac;
+        }
+
+        .hero p {
+            color: #d8d8d8;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #00e5ff;
+            color: #120c1c;
+            text-decoration: none;
+            font-weight: bold;
+            border: 3px solid #8a2be2;
+            box-shadow: 5px 5px #8a2be2;
+            transition: 0.2s;
+        }
+
+        .btn:hover {
+            background-color: #ff3cac;
+            color: white;
+            transform: translate(3px, 3px);
+            box-shadow: 2px 2px #8a2be2;
+        }
+
+        .section {
+            padding: 80px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            color: #00e5ff;
+            text-shadow: 3px 3px #8a2be2;
+        }
+
+        .section-title p {
+            color: #ff3cac;
+            margin-bottom: 8px;
+        }
+
+        .media-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .media-card {
+            background-color: #1d1230;
+            border: 3px solid #8a2be2;
+            padding: 20px;
+            box-shadow: 7px 7px #09060d;
+        }
+
+        .media-card h3 {
+            color: #00e5ff;
+            margin-bottom: 15px;
+        }
+
+        .media-card p {
+            color: #d8d8d8;
+            margin-bottom: 15px;
+        }
+
+        video,
+        audio {
+            width: 100%;
+        }
+
+        video {
+            display: block;
+            border: 2px solid #00e5ff;
+        }
+
+        audio {
+            margin-top: 10px;
+        }
+
+        .youtube-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+        }
+
+        .youtube-container iframe {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            border: 2px solid #00e5ff;
+        }
+
+        .pdf-container {
+            width: 100%;
+        }
+
+        .pdf-container embed {
+            width: 100%;
+            height: 500px;
+            border: 2px solid #00e5ff;
+        }
+
+        .about {
+            background-color: #191025;
+        }
+
+        .about-content {
+            max-width: 850px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .about-content p {
+            color: #d8d8d8;
+            margin-bottom: 15px;
+        }
+
+        .skills {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .skill {
+            padding: 8px 15px;
+            color: #120c1c;
+            background-color: #00e5ff;
+            font-weight: bold;
+            border: 2px solid #8a2be2;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background-color: #0b0710;
+            border-top: 3px solid #ff3cac;
+        }
+
+        footer p {
+            color: #aaa;
+        }
+
+        @media (max-width: 800px) {
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .media-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .nav-links {
+                gap: 12px;
+                font-size: 12px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .section {
+                padding: 60px 5%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo">[ GAME.DEV ]</div>
+
+        <ul class="nav-links">
+            <li><a href="#home">HOME</a></li>
+            <li><a href="#about">ABOUT</a></li>
+            <li><a href="#media">MEDIA</a></li>
+            <li><a href="#resume">RESUME</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <p class="pixel-label">WELCOME TO MY PORTFOLIO</p>
+
+            <h1>GAME <span>PROGRAMMER</span></h1>
+
+            <p>
+                Creating interactive worlds through code, gameplay,
+                and creative problem solving.
+            </p>
+
+            <a href="#media" class="btn">START EXPLORING</a>
+        </div>
+    </section>
+
+    <section id="about" class="section about">
+        <div class="section-title">
+            <p>PLAYER PROFILE</p>
+            <h2>ABOUT ME</h2>
+        </div>
+
+        <div class="about-content">
+            <p>
+                Hello! I'm a Game Programmer interested in creating
+                interactive experiences and exploring the technical side
+                of game development.
+            </p>
+
+            <p>
+                I enjoy working with programming, game mechanics,
+                environments, and systems that bring a game world to life.
+            </p>
+
+            <div class="skills">
+                <div class="skill">C++</div>
+                <div class="skill">C#</div>
+                <div class="skill">UNITY</div>
+                <div class="skill">GODOT</div>
+                <div class="skill">GAME DESIGN</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="media" class="section">
+        <div class="section-title">
+            <p>MEDIA ARCHIVE</p>
+            <h2>MULTIMEDIA</h2>
+        </div>
+
+        <div class="media-grid">
+
+            <div class="media-card">
+                <h3>01 // INTRODUCTION VIDEO</h3>
+
+                <p>
+                    A short visual introduction representing my interest
+                    in game development.
+                </p>
+
+                <video controls>
+                    <source
+                        src="https://videos.pexels.com/video-files/4974888/4974888-sd_640_360_25fps.mp4"
+                        type="video/mp4">
+                    Browser Anda tidak mendukung elemen video.
+                </video>
+            </div>
+
+            <div class="media-card">
+                <h3>02 // BACKGROUND MUSIC</h3>
+
+                <p>
+                    Optional background music for a retro gaming atmosphere.
+                </p>
+
+                <audio controls>
+                    <source
+                        src="https://cdn.freesound.org/previews/870/870137_6774166-lq.mp3"
+                        type="audio/mpeg">
+
+                    <source
+                        src="https://cdn.freesound.org/previews/870/870137_6774166-lq.ogg"
+                        type="audio/ogg">
+
+                    Browser Anda tidak mendukung elemen audio.
+                </audio>
+            </div>
+
+            <div class="media-card">
+                <h3>03 // YOUTUBE</h3>
+
+                <p>
+                    A YouTube video related to game development and
+                    my interests.
+                </p>
+
+                <div class="youtube-container">
+                    <iframe
+                        src="https://www.youtube.com/embed/IMO7ZO7crSo"
+                        title="Game Development Video"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+
+            <div id="resume" class="media-card">
+                <h3>04 // RESUME</h3>
+
+                <p>
+                    My resume is displayed directly on this portfolio
+                    using an embedded PDF.
+                </p>
+
+                <div class="pdf-container">
+                    <embed
+                        src="https://pdfobject.com/pdf/sample.pdf"
+                        type="application/pdf">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>GAME.DEV PORTFOLIO</p>
+        <p>&copy; 2026 - Built with HTML & CSS</p>
+    </footer>
+
+</body>
+</html>
