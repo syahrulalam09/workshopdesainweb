@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cara Menambahkan CSS</title>
+
+    <!-- 1. External CSS -->
+    <link rel="stylesheet" href="2_external-style.css">
+
+    <!-- 2. Internal CSS -->
+    <style>
+        .internal-style {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 3. Inline CSS -->
+    <h1 style="color: #6c5ce7; text-align: center;">
+        Cara Menambahkan CSS
+    </h1>
+
+    <div class="external-style">
+        <h2>External CSS</h2>
+        <p>Style ini berasal dari file external "2_external-style.css"</p>
+    </div>
+
+    <div class="internal-style">
+        <h2>Internal CSS</h2>
+        <p>Style ini berasal dari tag &lt;style&gt; di dalam head</p>
+    </div>
+
+    <div style="background-color: #d1ecf1; border: 1px solid #bee5eb; padding: 15px; margin: 10px 0;">
+        <h2>Inline CSS</h2>
+        <p>Style ini ditulis langsung pada atribut style elemen</p>
+    </div>
+</body>
+</html>

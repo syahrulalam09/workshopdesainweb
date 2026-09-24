@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Background</title>
+
+    <style>
+        .background-demo {
+            height: 300px;
+            margin: 20px 0;
+            padding: 20px;
+            color: white;
+            border: 2px solid #333;
+            border-radius: 10px;
+        }
+
+        #bg-color {
+            background-color: #3498db;
+        }
+
+        #bg-image {
+            background-image: url('https://placehold.co/400x200/DDDDDD/FFFFFF');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+
+        #bg-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        #bg-multiple {
+            background:
+                linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                url('https://placehold.co/400x200/DDDDDD/FFFFFF');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>CSS Background Properties</h1>
+
+    <div class="background-demo" id="bg-color">
+        <h2>Background Color</h2>
+        <p>Hanya menggunakan background color</p>
+    </div>
+
+    <div class="background-demo" id="bg-image">
+        <h2>Background Image</h2>
+        <p>Menggunakan gambar background dengan properti position dan size</p>
+    </div>
+
+    <div class="background-demo" id="bg-gradient">
+        <h2>Background Gradient</h2>
+        <p>Menggunakan gradient linear</p>
+    </div>
+
+    <div class="background-demo" id="bg-multiple">
+        <h2>Multiple Backgrounds</h2>
+        <p>Kombinasi gradient dan gambar dengan overlay</p>
+    </div>
+</body>
+</html>
