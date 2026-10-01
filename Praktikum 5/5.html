@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Multiple Columns & Box Sizing</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 90%;
+            margin: 20px auto;
+            font-family: Arial;
+        }
+
+        /* Multiple Columns */
+        .multi-column {
+            column-count: 3;
+            column-gap: 40px;
+            column-rule: 2px solid #ff6b6b;
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 15px;
+        }
+
+        .multi-column h3 {
+            column-span: all;
+            text-align: center;
+            color: #ff6b6b;
+        }
+
+        /* Box Sizing Demo */
+        .box-demo {
+            display: flex;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .box {
+            width: 200px;
+            padding: 20px;
+            border: 5px solid #333;
+            background: lightblue;
+        }
+
+        .box-border {
+            box-sizing: border-box;
+            background: lightgreen;
+        }
+
+        .box-content {
+            box-sizing: content-box;
+            background: lightsalmon;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="multi-column">
+            <h3>CSS Multiple Columns</h3>
+
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+            </p>
+
+            <p>
+                Nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            </p>
+
+            <p>
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                deserunt mollit anim id est laborum. Curabitur pretium tincidunt lacus.
+            </p>
+        </div>
+
+        <h3>Box Sizing: border-box vs content-box</h3>
+
+        <div class="box-demo">
+            <div class="box box-border">
+                border-box<br>
+                width 200px (termasuk padding+border)
+            </div>
+
+            <div class="box box-content">
+                content-box<br>
+                width 200px + padding + border = lebih lebar
+            </div>
+        </div>
+    </div>
+</body>
+</html>
