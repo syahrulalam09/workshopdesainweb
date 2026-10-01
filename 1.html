@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Rounded Corners, Gradients, Shadows</title>
+
+    <style>
+        .card {
+            width: 300px;
+            padding: 20px;
+            margin: 20px auto;
+            text-align: center;
+
+            /* Rounded Corners */
+            border-radius: 30px 15px 30px 15px;
+
+            /* Gradients */
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+
+            /* Shadow Effects */
+            box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3),
+                        inset 0 1px 2px rgba(255, 255, 255, 0.3);
+
+            color: white;
+            font-family: Arial;
+        }
+
+        .avatar {
+            width: 100px;
+            height: 100px;
+            background: white;
+            margin: 0 auto 15px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #ff9966, #ff5e62);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <div class="avatar"></div>
+        <h3>CSS Rounded Corners</h3>
+        <p>Gradient background + Box Shadow + Border Radius</p>
+    </div>
+</body>
+</html>
