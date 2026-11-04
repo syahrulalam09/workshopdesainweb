@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Inputs Bootstrap</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container mt-4">
+        <h3>Contoh Berbagai Jenis Form Input Bootstrap</h3>
+
+        <div class="row">
+            <div class="col-md-6">
+                <!-- Input Group -->
+                <div class="mb-3">
+                    <label class="form-label">Input Group</label>
+                    <div class="input-group">
+                        <span class="input-group-text">@</span>
+                        <input type="text" class="form-control" placeholder="Username">
+                    </div>
+                </div>
+
+                <!-- Input dengan Icon -->
+                <div class="mb-3">
+                    <label class="form-label">Input dengan Icon</label>
+                    <div class="input-group">
+                        <span class="input-group-text">
+                            <i>📧</i>
+                        </span>
+                        <input type="email" class="form-control" placeholder="Email">
+                    </div>
+                </div>
+
+                <!-- Select Input -->
+                <div class="mb-3">
+                    <label for="framework" class="form-label">Pilih Framework</label>
+                    <select class="form-select" id="framework">
+                        <option selected>Pilih framework...</option>
+                        <option value="1">Bootstrap</option>
+                        <option value="2">Tailwind CSS</option>
+                        <option value="3">Foundation</option>
+                    </select>
+                </div>
+
+                <!-- Range Input -->
+                <div class="mb-3">
+                    <label for="skillRange" class="form-label">Tingkat Kemampuan: <span id="skillValue">50</span>%</label>
+                    <input type="range" class="form-range" id="skillRange" min="0" max="100" value="50">
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <!-- Checkbox Switches -->
+                <div class="mb-3">
+                    <label class="form-label">Toggle Switches</label>
+
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                        <label class="form-check-label" for="flexSwitchCheckDefault">Dark Mode</label>
+                    </div>
+
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
+                        <label class="form-check-label" for="flexSwitchCheckChecked">Notifications</label>
+                    </div>
+                </div>
+
+                <!-- Radio Buttons -->
+                <div class="mb-3">
+                    <label class="form-label">Tipe Pembelajaran</label>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="learningType" id="online">
+                        <label class="form-check-label" for="online">Online</label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="learningType" id="offline">
+                        <label class="form-check-label" for="offline">Offline</label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="learningType" id="hybrid">
+                        <label class="form-check-label" for="hybrid">Hybrid</label>
+                    </div>
+                </div>
+
+                <!-- Color Picker -->
+                <div class="mb-3">
+                    <label for="colorPicker" class="form-label">Pilih Warna Tema</label>
+                    <input type="color" class="form-control form-control-color" id="colorPicker" value="#563d7c" title="Choose your color">
+                </div>
+
+                <!-- Date Input -->
+                <div class="mb-3">
+                    <label for="birthDate" class="form-label">Tanggal Lahir</label>
+                    <input type="date" class="form-control" id="birthDate">
+                </div>
+            </div>
+        </div>
+
+        <!-- Validation States -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <h5>Validation States</h5>
+
+                <div class="mb-3">
+                    <label for="validInput" class="form-label">Valid Input</label>
+                    <input type="text" class="form-control is-valid" id="validInput" value="Input yang benar">
+                    <div class="valid-feedback">Looks good!</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="invalidInput" class="form-label">Invalid Input</label>
+                    <input type="text" class="form-control is-invalid" id="invalidInput" value="Input yang salah">
+                    <div class="invalid-feedback">Please provide a valid input.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Update range value display
+        document.getElementById('skillRange').addEventListener('input', function() {
+            document.getElementById('skillValue').textContent = this.value;
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
