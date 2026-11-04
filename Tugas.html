@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HanyuQuest - Admin Dashboard</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #4F46E5;
+            --background: #F8FAFC;
+            --text: #1E293B;
+            --success: #22C55E;
+            --warning: #F59E0B;
+        }
+
+        body {
+            background-color: var(--background);
+            color: var(--text);
+            font-family: Arial, sans-serif;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: white;
+            border-bottom: 1px solid #E2E8F0;
+        }
+
+        .navbar-brand {
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 22px;
+        }
+
+        .navbar-brand:hover {
+            color: var(--primary);
+        }
+
+        .navbar .nav-link {
+            color: #475569;
+        }
+
+        .navbar .nav-link.active,
+        .navbar .nav-link:hover {
+            color: var(--primary);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background-color: white;
+            min-height: calc(100vh - 65px);
+            border-right: 1px solid #E2E8F0;
+            padding: 25px 15px;
+        }
+
+        .sidebar-title {
+            color: #94A3B8;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin: 20px 10px 10px;
+        }
+
+        .sidebar .list-group-item {
+            border: none;
+            border-radius: 8px;
+            color: #475569;
+            padding: 12px;
+            margin-bottom: 5px;
+        }
+
+        .sidebar .list-group-item:hover,
+        .sidebar .list-group-item.active {
+            background-color: #EEF2FF;
+            color: var(--primary);
+        }
+
+        .sidebar .badge {
+            background-color: var(--primary);
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 30px;
+        }
+
+        .page-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .text-muted-custom {
+            color: #64748B;
+        }
+
+        /* Cards */
+        .dashboard-card,
+        .content-card {
+            background-color: white;
+            border: 1px solid #E2E8F0;
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .dashboard-card {
+            height: 100%;
+        }
+
+        .stat-icon {
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            font-size: 22px;
+        }
+
+        .icon-purple {
+            background-color: #EEF2FF;
+            color: var(--primary);
+        }
+
+        .icon-green {
+            background-color: #DCFCE7;
+            color: var(--success);
+        }
+
+        .icon-orange {
+            background-color: #FEF3C7;
+            color: var(--warning);
+        }
+
+        .icon-blue {
+            background-color: #DBEAFE;
+            color: #2563EB;
+        }
+
+        /* Buttons */
+        .btn-primary {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            background-color: #4338CA;
+            border-color: #4338CA;
+        }
+
+        .text-primary-custom {
+            color: var(--primary);
+        }
+
+        /* Table */
+        .table th {
+            color: #64748B;
+            font-size: 13px;
+            font-weight: 600;
+            background-color: #F8FAFC;
+            white-space: nowrap;
+        }
+
+        .table td {
+            vertical-align: middle;
+            font-size: 14px;
+        }
+
+        .course-avatar {
+            width: 38px;
+            height: 38px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 9px;
+            background-color: #EEF2FF;
+            color: var(--primary);
+            margin-right: 10px;
+        }
+
+        .status-active {
+            background-color: #DCFCE7;
+            color: #15803D;
+        }
+
+        .status-draft {
+            background-color: #FEF3C7;
+            color: #B45309;
+        }
+
+        /* Forms */
+        .form-label {
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .form-control:focus,
+        .form-select:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 0.2rem rgba(79, 70, 229, 0.15);
+        }
+
+        .section-heading {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        footer {
+            color: #94A3B8;
+            font-size: 13px;
+            padding: 20px 0;
+        }
+
+        @media (max-width: 767px) {
+            .sidebar {
+                min-height: auto;
+                border-right: none;
+                border-bottom: 1px solid #E2E8F0;
+            }
+
+            .main-content {
+                padding: 20px 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container-fluid px-4">
+
+            <a class="navbar-brand" href="#">
+                <i class="bi bi-mortarboard-fill me-2"></i>HanyuQuest
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarContent">
+
+                <ul class="navbar-nav ms-4 me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#dashboard">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#courses">Kursus</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#students">Siswa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#reports">Laporan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#settings">Pengaturan</a>
+                    </li>
+                </ul>
+
+                <!-- Navbar Search -->
+                <form class="d-flex me-3" role="search">
+                    <div class="input-group">
+                        <span class="input-group-text bg-light border-end-0">
+                            <i class="bi bi-search"></i>
+                        </span>
+                        <input class="form-control border-start-0" type="search" placeholder="Cari sesuatu...">
+                    </div>
+                </form>
+
+                <!-- Admin Profile Dropdown -->
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" data-bs-toggle="dropdown">
+                            <i class="bi bi-person-circle fs-4 me-2"></i>
+                            Admin
+                        </a>
+
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#settings"><i class="bi bi-person me-2"></i>Profil</a></li>
+                            <li><a class="dropdown-item" href="#settings"><i class="bi bi-gear me-2"></i>Pengaturan</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-box-arrow-right me-2"></i>Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+
+            <!-- Sidebar -->
+            <aside class="col-md-3 col-lg-2 sidebar">
+
+                <p class="sidebar-title">MENU UTAMA</p>
+
+                <div class="list-group">
+                    <a href="#dashboard" class="list-group-item active d-flex justify-content-between align-items-center">
+                        <span><i class="bi bi-grid me-2"></i>Dashboard</span>
+                        <span class="badge rounded-pill">1</span>
+                    </a>
+
+                    <a href="#courses" class="list-group-item d-flex justify-content-between align-items-center">
+                        <span><i class="bi bi-book me-2"></i>Kursus Aktif</span>
+                        <span class="badge rounded-pill">8</span>
+                    </a>
+
+                    <a href="#tasks" class="list-group-item d-flex justify-content-between align-items-center">
+                        <span><i class="bi bi-clipboard-check me-2"></i>Tugas</span>
+                        <span class="badge rounded-pill">5</span>
+                    </a>
+
+                    <a href="#discussion" class="list-group-item d-flex justify-content-between align-items-center">
+                        <span><i class="bi bi-chat-dots me-2"></i>Diskusi</span>
+                        <span class="badge rounded-pill">3</span>
+                    </a>
+
+                    <a href="#help" class="list-group-item d-flex justify-content-between align-items-center">
+                        <span><i class="bi bi-question-circle me-2"></i>Bantuan</span>
+                        <span class="badge rounded-pill">0</span>
+                    </a>
+                </div>
+
+                <p class="sidebar-title">PREFERENSI</p>
+
+                <div class="list-group">
+                    <a href="#settings" class="list-group-item">
+                        <i class="bi bi-gear me-2"></i>Pengaturan Akun
+                    </a>
+                    <a href="#reports" class="list-group-item">
+                        <i class="bi bi-bar-chart me-2"></i>Laporan
+                    </a>
+                </div>
+
+            </aside>
+
+            <!-- Main Content -->
+            <main class="col-md-9 col-lg-10 main-content">
+
+                <!-- Dashboard Heading -->
+                <section id="dashboard">
+                    <div class="d-flex flex-wrap justify-content-between align-items-center mb-4">
+                        <div>
+                            <h3 class="page-title">Dashboard Admin</h3>
+                            <p class="text-muted-custom mb-0">Selamat datang kembali! Berikut ringkasan HanyuQuest.</p>
+                        </div>
+
+                        <button class="btn btn-primary mt-3 mt-md-0" onclick="document.getElementById('courseName').focus()">
+                            <i class="bi bi-plus-lg me-1"></i>Tambah Kursus
+                        </button>
+                    </div>
+
+                    <!-- Statistics Cards -->
+                    <div class="row g-3 mb-4">
+
+                        <div class="col-sm-6 col-xl-3">
+                            <div class="dashboard-card">
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <p class="text-muted-custom mb-1">Total Kursus</p>
+                                        <h3 class="fw-bold">12</h3>
+                                        <small class="text-success">8 kursus aktif</small>
+                                    </div>
+                                    <div class="stat-icon icon-purple">
+                                        <i class="bi bi-book"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-xl-3">
+                            <div class="dashboard-card">
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <p class="text-muted-custom mb-1">Total Siswa</p>
+                                        <h3 class="fw-bold">248</h3>
+                                        <small class="text-success">+12 bulan ini</small>
+                                    </div>
+                                    <div class="stat-icon icon-green">
+                                        <i class="bi bi-people"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-xl-3">
+                            <div class="dashboard-card">
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <p class="text-muted-custom mb-1">Tugas Masuk</p>
+                                        <h3 class="fw-bold">35</h3>
+                                        <small class="text-warning">5 perlu diperiksa</small>
+                                    </div>
+                                    <div class="stat-icon icon-orange">
+                                        <i class="bi bi-file-earmark-text"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-xl-3">
+                            <div class="dashboard-card">
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <p class="text-muted-custom mb-1">Total Poin</p>
+                                        <h3 class="fw-bold">15.8K</h3>
+                                        <small class="text-success">Poin siswa</small>
+                                    </div>
+                                    <div class="stat-icon icon-blue">
+                                        <i class="bi bi-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- Course Management -->
+                <section id="courses" class="content-card mb-4">
+
+                    <div class="d-flex flex-wrap justify-content-between align-items-center mb-3">
+                        <div>
+                            <h5 class="fw-bold mb-1">Manajemen Kursus</h5>
+                            <p class="text-muted-custom small mb-0">Kelola daftar kursus pembelajaran Mandarin.</p>
+                        </div>
+
+                        <!-- Dropdown Filter -->
+                        <div class="dropdown mt-2 mt-md-0">
+                            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                                <i class="bi bi-funnel me-1"></i>Filter Data
+                            </button>
+
+                            <div class="dropdown-menu dropdown-menu-end p-3" style="width: 250px;">
+                                <form>
+                                    <label class="form-label">Status Kursus</label>
+                                    <select class="form-select form-select-sm mb-3">
+                                        <option>Semua Status</option>
+                                        <option>Aktif</option>
+                                        <option>Draft</option>
+                                    </select>
+
+                                    <label class="form-label">Level HSK</label>
+                                    <select class="form-select form-select-sm mb-3">
+                                        <option>Semua Level</option>
+                                        <option>HSK 1</option>
+                                        <option>HSK 2</option>
+                                        <option>HSK 3</option>
+                                    </select>
+
+                                    <button type="submit" class="btn btn-primary btn-sm w-100">Terapkan Filter</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Advanced Search -->
+                    <form class="row g-2 mb-3">
+                        <div class="col-md-5">
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-search"></i></span>
+                                <input type="text" class="form-control" placeholder="Cari nama kursus...">
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <select class="form-select">
+                                <option value="">Semua Level</option>
+                                <option>HSK 1</option>
+                                <option>HSK 2</option>
+                                <option>HSK 3</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-2">
+                            <select class="form-select">
+                                <option value="">Semua Status</option>
+                                <option>Aktif</option>
+                                <option>Draft</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-2">
+                            <button type="submit" class="btn btn-primary w-100">
+                                <i class="bi bi-search me-1"></i>Cari
+                            </button>
+                        </div>
+                    </form>
+
+                    <!-- Course Table -->
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle">
+                            <thead>
+                                <tr>
+                                    <th>Nama Kursus</th>
+                                    <th>Level</th>
+                                    <th>Jumlah Siswa</th>
+                                    <th>Status</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <span class="course-avatar"><i class="bi bi-translate"></i></span>
+                                        <strong>Mandarin Dasar</strong>
+                                    </td>
+                                    <td>HSK 1</td>
+                                    <td>120</td>
+                                    <td><span class="badge status-active">Aktif</span></td>
+                                    <td>
+                                        <div class="dropdown">
+                                            <button class="btn btn-sm btn-light dropdown-toggle" data-bs-toggle="dropdown">
+                                                Aksi
+                                            </button>
+                                            <ul class="dropdown-menu dropdown-menu-end">
+                                                <li><a class="dropdown-item" href="#add-course"><i class="bi bi-eye me-2"></i>Lihat</a></li>
+                                                <li><a class="dropdown-item" href="#add-course"><i class="bi bi-pencil me-2"></i>Edit</a></li>
+                                                <li><hr class="dropdown-divider"></li>
+                                                <li><a class="dropdown-item text-danger" href="#"><i class="bi bi-trash me-2"></i>Hapus</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <span class="course-avatar"><i class="bi bi-chat-square-text"></i></span>
+                                        <strong>Percakapan Mandarin</strong>
+                                    </td>
+                                    <td>HSK 2</td>
+                                    <td>78</td>
+                                    <td><span class="badge status-active">Aktif</span></td>
+                                    <td>
+                                        <div class="dropdown">
+                                            <button class="btn btn-sm btn-light dropdown-toggle" data-bs-toggle="dropdown">
+                                                Aksi
+                                            </button>
+                                            <ul class="dropdown-menu dropdown-menu-end">
+                                                <li><a class="dropdown-item" href="#"><i class="bi bi-eye me-2"></i>Lihat</a></li>
+                                                <li><a class="dropdown-item" href="#add-course"><i class="bi bi-pencil me-2"></i>Edit</a></li>
+                                                <li><hr class="dropdown-divider"></li>
+                                                <li><a class="dropdown-item text-danger" href="#"><i class="bi bi-trash me-2"></i>Hapus</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <span class="course-avatar"><i class="bi bi-journal-text"></i></span>
+                                        <strong>Tata Bahasa Mandarin</strong>
+                                    </td>
+                                    <td>HSK 3</td>
+                                    <td>50</td>
+                                    <td><span class="badge status-draft">Draft</span></td>
+                                    <td>
+                                        <div class="dropdown">
+                                            <button class="btn btn-sm btn-light dropdown-toggle" data-bs-toggle="dropdown">
+                                                Aksi
+                                            </button>
+                                            <ul class="dropdown-menu dropdown-menu-end">
+                                                <li><a class="dropdown-item" href="#"><i class="bi bi-eye me-2"></i>Lihat</a></li>
+                                                <li><a class="dropdown-item" href="#add-course"><i class="bi bi-pencil me-2"></i>Edit</a></li>
+                                                <li><hr class="dropdown-divider"></li>
+                                                <li><a class="dropdown-item text-danger" href="#"><i class="bi bi-trash me-2"></i>Hapus</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </section>
+
+                <!-- Add Course and Quick Settings -->
+                <div class="row g-4 mb-4">
+
+                    <!-- Add Course Form -->
+                    <div class="col-lg-7" id="add-course">
+                        <div class="content-card h-100">
+                            <h5 class="section-heading">
+                                <i class="bi bi-plus-circle text-primary-custom me-2"></i>Tambah Kursus Baru
+                            </h5>
+
+                            <form class="needs-validation" novalidate>
+                                <div class="mb-3">
+                                    <label for="courseName" class="form-label">Nama Kursus</label>
+                                    <input type="text" class="form-control" id="courseName" placeholder="Contoh: Mandarin Dasar" required>
+                                    <div class="invalid-feedback">Nama kursus wajib diisi.</div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="courseLevel" class="form-label">Level HSK</label>
+                                        <select class="form-select" id="courseLevel" required>
+                                            <option value="">Pilih level</option>
+                                            <option>HSK 1</option>
+                                            <option>HSK 2</option>
+                                            <option>HSK 3</option>
+                                        </select>
+                                        <div class="invalid-feedback">Silakan pilih level kursus.</div>
+                                    </div>
+
+                                    <div class="col-md-6 mb-3">
+                                        <label for="courseCategory" class="form-label">Kategori</label>
+                                        <select class="form-select" id="courseCategory" required>
+                                            <option value="">Pilih kategori</option>
+                                            <option>Kosakata</option>
+                                            <option>Grammar</option>
+                                            <option>Percakapan</option>
+                                        </select>
+                                        <div class="invalid-feedback">Silakan pilih kategori.</div>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="courseDescription" class="form-label">Deskripsi Kursus</label>
+                                    <textarea class="form-control" id="courseDescription" rows="3" placeholder="Masukkan deskripsi kursus..." required></textarea>
+                                    <div class="invalid-feedback">Deskripsi kursus wajib diisi.</div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="courseImage" class="form-label">Upload Gambar Kursus</label>
+                                    <input type="file" class="form-control" id="courseImage" accept="image/*">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="difficulty" class="form-label">Tingkat Kesulitan: <span id="difficultyValue">50</span>%</label>
+                                    <input type="range" class="form-range" id="difficulty" min="0" max="100" value="50">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label">Fitur Kursus</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="quizFeature">
+                                        <label class="form-check-label" for="quizFeature">Latihan Quiz</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="audioFeature">
+                                        <label class="form-check-label" for="audioFeature">Audio Pengucapan</label>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label">Status Publikasi</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="courseStatus" id="publish" value="publish" required>
+                                        <label class="form-check-label" for="publish">Publikasikan</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="courseStatus" id="draft" value="draft">
+                                        <label class="form-check-label" for="draft">Simpan sebagai Draft</label>
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="bi bi-save me-1"></i>Simpan Kursus
+                                </button>
+                                <button type="reset" class="btn btn-outline-secondary">Reset</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Quick Settings Dropdown -->
+                    <div class="col-lg-5">
+                        <div class="content-card mb-4">
+                            <h5 class="section-heading">
+                                <i class="bi bi-sliders text-primary-custom me-2"></i>Pengaturan Cepat
+                            </h5>
+
+                            <p class="text-muted-custom small">Atur preferensi tampilan dashboard melalui menu berikut.</p>
+
+                            <div class="dropdown">
+                                <button class="btn btn-outline-primary dropdown-toggle w-100" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside">
+                                    <i class="bi bi-gear me-2"></i>Pengaturan Tampilan
+                                </button>
+
+                                <div class="dropdown-menu p-3 w-100">
+                                    <form>
+                                        <div class="mb-3">
+                                            <label class="form-label">Tema Dashboard</label>
+                                            <select class="form-select">
+                                                <option>Light</option>
+                                                <option>Dark</option>
+                                                <option>Auto</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label class="form-label">Jumlah Data per Halaman</label>
+                                            <select class="form-select">
+                                                <option>5 Data</option>
+                                                <option selected>10 Data</option>
+                                                <option>25 Data</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-check form-switch mb-3">
+                                            <input class="form-check-input" type="checkbox" id="notificationSetting" checked>
+                                            <label class="form-check-label" for="notificationSetting">Aktifkan Notifikasi</label>
+                                        </div>
+
+                                        <button type="submit" class="btn btn-primary btn-sm w-100">Simpan Pengaturan</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Student Summary -->
+                        <div class="content-card" id="students">
+                            <h5 class="section-heading">
+                                <i class="bi bi-people text-primary-custom me-2"></i>Ringkasan Siswa
+                            </h5>
+
+                            <div class="d-flex justify-content-between mb-3">
+                                <span class="text-muted-custom">Siswa aktif</span>
+                                <strong>218 siswa</strong>
+                            </div>
+
+                            <div class="progress mb-3" style="height: 8px;">
+                                <div class="progress-bar" style="width: 85%; background-color: var(--primary);"></div>
+                            </div>
+
+                            <div class="d-flex justify-content-between mb-3">
+                                <span class="text-muted-custom">Siswa baru bulan ini</span>
+                                <strong>30 siswa</strong>
+                            </div>
+
+                            <div class="progress" style="height: 8px;">
+                                <div class="progress-bar bg-success" style="width: 60%;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Admin Profile Form -->
+                <section class="content-card mb-4" id="settings">
+                    <h5 class="section-heading">
+                        <i class="bi bi-person-gear text-primary-custom me-2"></i>Edit Profil Admin
+                    </h5>
+
+                    <form class="needs-validation" novalidate>
+                        <div class="row g-3">
+
+                            <div class="col-md-6">
+                                <label for="adminName" class="form-label">Nama Admin</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-person"></i></span>
+                                    <input type="text" class="form-control" id="adminName" value="Administrator" required>
+                                    <div class="invalid-feedback">Nama admin wajib diisi.</div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="adminEmail" class="form-label">Email</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                                    <input type="email" class="form-control" id="adminEmail" value="admin@hanyuquest.com" required>
+                                    <div class="invalid-feedback">Masukkan alamat email yang valid.</div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="adminPhone" class="form-label">Nomor Telepon</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-telephone"></i></span>
+                                    <input type="text" class="form-control" id="adminPhone" placeholder="08xxxxxxxxxx">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="adminRole" class="form-label">Jabatan</label>
+                                <input type="text" class="form-control" id="adminRole" value="Administrator" disabled>
+                            </div>
+
+                            <div class="col-12">
+                                <label for="adminBio" class="form-label">Deskripsi Profil</label>
+                                <textarea class="form-control" id="adminBio" rows="3" placeholder="Tuliskan deskripsi singkat..."></textarea>
+                            </div>
+
+                            <div class="col-12">
+                                <label for="adminPhoto" class="form-label">Foto Profil</label>
+                                <input type="file" class="form-control" id="adminPhoto" accept="image/*">
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="bi bi-check-lg me-1"></i>Simpan Profil
+                            </button>
+                            <button type="reset" class="btn btn-outline-secondary">Reset</button>
+                        </div>
+                    </form>
+                </section>
+
+                <!-- Reports -->
+                <section class="content-card mb-4" id="reports">
+                    <h5 class="section-heading">
+                        <i class="bi bi-bar-chart text-primary-custom me-2"></i>Laporan Aktivitas
+                    </h5>
+
+                    <p class="text-muted-custom mb-0">
+                        Ringkasan aktivitas pembelajaran dan perkembangan siswa akan ditampilkan pada bagian ini.
+                    </p>
+                </section>
+
+                <!-- Other Sidebar Destinations -->
+                <section class="content-card mb-4" id="tasks">
+                    <h5 class="section-heading">Tugas Siswa</h5>
+                    <p class="text-muted-custom mb-0">Terdapat 5 tugas siswa yang menunggu pemeriksaan.</p>
+                </section>
+
+                <section class="content-card mb-4" id="discussion">
+                    <h5 class="section-heading">Diskusi</h5>
+                    <p class="text-muted-custom mb-0">Lihat aktivitas diskusi dan pertanyaan dari siswa.</p>
+                </section>
+
+                <section class="content-card mb-4" id="help">
+                    <h5 class="section-heading">Bantuan</h5>
+                    <p class="text-muted-custom mb-0">Pusat bantuan untuk pengelolaan kursus HanyuQuest.</p>
+                </section>
+
+                <footer class="text-center">
+                    © 2026 HanyuQuest. All Rights Reserved.
+                </footer>
+
+            </main>
+        </div>
+    </div>
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Update range value
+        document.getElementById('difficulty').addEventListener('input', function() {
+            document.getElementById('difficultyValue').textContent = this.value;
+        });
+
+        // Bootstrap Form Validation
+        (() => {
+            'use strict';
+
+            const forms = document.querySelectorAll('.needs-validation');
+
+            Array.from(forms).forEach(form => {
+                form.addEventListener('submit', event => {
+                    event.preventDefault();
+
+                    if (!form.checkValidity()) {
+                        event.stopPropagation();
+                    } else {
+                        alert('Form berhasil divalidasi. Ini masih berupa prototype.');
+                    }
+
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        })();
+    </script>
+
+</body>
+</html>
