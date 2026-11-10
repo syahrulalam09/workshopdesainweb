@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript di Body (Akhir)</title>
+</head>
+<body>
+    <h1>Contoh 3: JavaScript di Body (Akhir)</h1>
+    <p>Konten HTML akan dimuat terlebih dahulu sebelum JavaScript dijalankan.</p>
+    <button id="tombolHitung">Hitung Jumlah Karakter</button>
+    <p id="hasil"></p>
+
+    <!-- JavaScript di akhir body -->
+    <script>
+        document.getElementById("tombolHitung").addEventListener("click", function() {
+            var teks = "Workshop Desain Web dengan JavaScript";
+            var jumlahKarakter = teks.length;
+
+            document.getElementById("hasil").innerHTML =
+                "Teks: '" + teks + "' memiliki " + jumlahKarakter + " karakter.";
+        });
+    </script>
+</body>
+</html>
